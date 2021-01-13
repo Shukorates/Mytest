@@ -11,5 +11,5 @@ jobs:
       - checkout
       - run:
           name: The First Step
-          command: echo 'hi'
+          command: npm install
 
