@@ -8,5 +8,7 @@ jobs:
  
     steps:
       - checkout
-      - echo "ram"
+      - run:
+          name: The First Step
+          command: echo 'hi'
 
