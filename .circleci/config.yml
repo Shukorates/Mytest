@@ -9,10 +9,8 @@ jobs:
       - checkout
       - run:
           name: The First Step
-          command: ls
-      - persist_to_workspace:
-          root: ./
-          paths: ./
+          command: terraform init
+      
           
 workflows:
   version: 2
