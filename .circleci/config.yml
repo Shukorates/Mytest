@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: The First Step
-          command: terraform init
+          command: terraform -help
       
           
 workflows:
