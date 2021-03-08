@@ -1,20 +1,25 @@
 version: 2
 jobs:
-  build:
+  plan-apply:
+    working_directory: /tmp/project
     docker:
-      - image: hashicorp/terraform
-
- 
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
     steps:
       - checkout
       - run:
-          name: The First Step
-          command: terraform -help
-      
+          name: terraform init and plan
+          command: |
+            terraform init -input=false
+            terraform plan 
+            terraform apply
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
           
 workflows:
   version: 2
   workflow:
     jobs:
-    - build
+    - plan-apply
 
